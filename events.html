@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Events</title>
+</head>
+<body>
+
+    <div id="example-1">
+        <button v-on:click="counter += 1">+1</button>
+        <p>Кнопка выше была нажата {{ counter }} раз</p>
+    </div>
+
+    <div id="example-2">
+        <button v-on:click="greet">Greetings</button>
+    </div>
+
+    <div id="example-3">
+        <button v-on:click="say('Hi')">Say Hi</button>
+        <button v-on:click="say('What')">Say What</button>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        let example1 = new Vue({
+            el: '#example-1',
+            data: {
+                counter: 0
+            }
+        })
+
+        let example2 = new Vue({
+            el: '#example-2',
+            data: {
+                name: 'Vue.js'
+            },
+            methods: {
+                greet: function(event) {
+                    alert(`Hello, ${this.name}!`)
+
+                    if (event) {
+                        alert(event.target.tagName)
+                    }
+                }
+            }
+        })
+
+        let example3 = new Vue({
+            el: '#example-3',
+            methods: {
+                say: function(message) {
+                    alert(message)
+                }
+            }
+        })
+    </script>
+</body>
+</html>
